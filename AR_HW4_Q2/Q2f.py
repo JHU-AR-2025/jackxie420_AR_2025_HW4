@@ -60,7 +60,8 @@ for k in range(num_steps):
  
     K = P_pred @ H.T @ np.linalg.inv(H @ P_pred @ H.T + R)
     
-    x_est = x_pred + K @ (z - H @ x_pred)
+    #Only changed here: new prediction is simply the old one.
+    x_est = x_pred
     
     P = (np.eye(2) - K @ H) @ P_pred
 
